@@ -1,24 +1,41 @@
 document.getElementById("search-button").addEventListener("click", function() {
+    // Get input values from the search form
     const religion = document.getElementById("religion").value.toLowerCase();
-    const category = document.getElementById("category").value.toLowerCase();
-    const date = document.getElementById("date").value; // No need for toLowerCase here
+    const category = document.getElementById("category").value.toLowerCase();  // This now includes "motorshow" too!
+    const date = document.getElementById("date").value;
     const location = document.getElementById("location").value.toLowerCase();
-    const country = document.getElementById("country").value.toLowerCase(); // Corrected here
+    const country = document.getElementById("country").value.toLowerCase();
 
+    // Select all event boxes
     const boxes = document.querySelectorAll(".event-box");
     
     boxes.forEach(box => {
-        const boxCategory = box.getAttribute('data-category').toLowerCase();
-        const boxText = box.textContent.toLowerCase();
-        
-        // Check each filter
-        const matchesReligion = religion === "" || boxText.includes(religion);
-        const matchesCategory = category === "" || boxCategory.includes(category);
-        const matchesDate = date === "" || boxText.includes(date); // Ensure event dates are formatted correctly
-        const matchesLocation = location === "" || boxText.includes(location);
-        const matchesCountry = country === "" || boxText.includes(country); // Corrected here
+        // Get the data attributes from each event box
+        const boxCategory = box.getAttribute('data-category').toLowerCase(); // "motorshow" will be included here
+        const boxReligion = box.getAttribute('data-religion')?.toLowerCase() || ""; 
+        const boxDate = box.getAttribute('data-date');
+        const boxLocation = box.getAttribute('data-location')?.toLowerCase() || "";
+        const boxCountry = box.getAttribute('data-country')?.toLowerCase() || ""; 
 
-        // Show or hide the box based on matches
-        box.style.display = matchesReligion && matchesCategory && matchesDate && matchesLocation && matchesCountry ? "block" : "none";
+        // Debugging: Log the values being checked
+        console.log(`Checking box:
+            Location: ${boxLocation}, Filter Location: ${location}
+            Category: ${boxCategory}, Filter Category: ${category}
+            Date: ${boxDate}, Filter Date: ${date}
+            Country: ${boxCountry}, Filter Country: ${country}`);
+
+        // Check each filter condition
+        const matchesReligion = religion === "" || boxReligion.includes(religion);
+        const matchesCategory = category === "" || boxCategory.includes(category);  // Will match "motorshow"
+        const matchesDate = date === "" || boxDate === date; // Ensure event dates are formatted correctly
+        const matchesLocation = location === "" || boxLocation.includes(location);
+        const matchesCountry = country === "" || boxCountry.includes(country);
+
+        // Show or hide the box based on the filter conditions
+        if (matchesReligion && matchesCategory && matchesDate && matchesLocation && matchesCountry) {
+            box.style.display = "block";
+        } else {
+            box.style.display = "none";
+        }
     });
 });
