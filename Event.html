@@ -12,22 +12,18 @@
     </header>
     <body>
         <div class="search-container">
-                <label for="religion">Religion:</label>
-                <select id="religion">
-                    <option value="">Select...</option>
-                    <option value="Christianity">Christianity</option>
-                    <option value="Islam">Islam</option>
-                    <option value="Hinduism">Hinduism</option>
-                </select>
-
             <label for="category">Category:</label>
             <select id="category">
-                <option value="">Select...</option>
-                <option value="Music">Music</option>
-                <option value="Art">Art</option>
-                <option value="Food">Food</option>
-                <option value="community">Community</option>
-                <option value="Motorshow">Motorshow</option>
+                <option value="">Alle Arrangementer</option>
+                <option value="Music">Musikk</option>
+                <option value="Art">Kunst & Utstillinger</option>
+                <option value="Food">Mat & Drikke</option>
+                <option value="Felleskap">Felleskap</option>
+                <option value="Barnfamilie">Barn & Familie</option>
+                <option value="TeaterDans">Teater & Dans</option>
+                <option value="Guidede turer">Guidede turer</option>
+                <option value="Festivaler">Festivaler</option>
+                <option value="Litteratur & Poesi">Litteratur & Poesi</option>
             </select>
 
             <label for="date">Date:</label>
@@ -42,6 +38,15 @@
                 <option value="Norway">Norway</option>
                 <option value="Sweden">Sweden</option>
                 <option value="Denmark">Denmark</option>
+                <option value="Finland">Finland</option>
+            </select>
+
+            <label for="religion">Religion:</label>
+            <select id="religion">
+                <option value="">Select...</option>
+                <option value="Christianity">Christianity</option>
+                <option value="Islam">Islam</option>
+                <option value="Hinduism">Hinduism</option>
             </select>
 
             <button id="search-button">Search</button>
@@ -51,6 +56,7 @@
                 <a href="Event1.html">
                 <h3>HOG National Rally 2025</h3>
                 <p>Date: January 1, 2025</p>
+                <p>Country: Norway</p>
                 <p>Location: Båly</p>
                 <p>Category: Motorshow</p>
             </a>
@@ -65,11 +71,13 @@
             </a>
             </div>
             <div class="event-box" data-category="Music" data-country="Sweden" data-location="Vesterås">
+                <a href="Event3.html">
                 <h3>Fiske konkuranse</h3>
                 <p>Date: March 5, 2025</p>
                 <p>Location: Vesterås</p>
                 <p>Country: Sweden</p>
                 <p>Category: Food</p>
+            </a>
             </div>
             <div class="event-box" data-category="Music" data-country="Denmark" data-location="City D">
                 <h3>Event 4</h3>
@@ -85,6 +93,19 @@
                 <p>Country: Denmark</p>
                 <p>Category: Music</p>
             </div>
+            <div class="event-box" data-category="Barnfamilie" data-country="Norge" data-location="Lyngdal">
+                <h3>Open day at Leos Lekeland</h3>
+                <p>Date: Oktober 3, 2024</p>
+                <p>Location: Lyngdal</p>
+                <p>Country: Denmark</p>
+                <p>Category: Barn & Familie</p>
+            </div>
+            <div class="event-box" data-category="Community" data-country="Norway" data-location="Njerve" data-religion="Christianity" data-date="January 1, 2025">
+                <h3>Event</h3>
+                <p>Date:</p>
+                <p>Location:</p>
+                <p>Country: Norway</p>
+                <p>Category:</p>
     </div>
         <script src="Event.js"></script>
     </body>
